@@ -25,16 +25,16 @@ android {
 }
 
 task makeJar(type: Copy) {
-    delete 'build/libs/Silladus-SlidePagerView.jar'
+    delete 'build/libs/slidepagerview-1.0.0.jar'
     from('build/intermediates/bundles/release/')
     into('build/libs/')
     include('classes.jar')
-    rename('classes.jar', 'Silladus-SlidePagerView.jar')
+    rename('classes.jar', 'slidepagerview-1.0.0.jar')
 }
 
 makeJar.dependsOn(build)
 
-//gradlew :test:clean :test:makeJar   //:test表示lib库名称，这种写法是指定lib库生成jar
+//gradlew :slidepagerview:clean :slidepagerview:makeJar   //:slidepagerview表示lib库名称，这种写法是指定lib库生成jar
 //
 //或者
 //
@@ -46,5 +46,4 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:0.5'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    implementation files('libs/nineoldandroids-2.4.0.jar')
 }
